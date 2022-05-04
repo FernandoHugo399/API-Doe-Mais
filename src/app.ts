@@ -1,6 +1,7 @@
 import { db } from './database/index'
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 class App {
     public express: express.Application
@@ -14,6 +15,11 @@ class App {
 
     private middlewares (): void {
       dotenv.config()
+
+      this.express.use(cors({
+        origin: '*'
+      }))
+
       this.express.use(express.json())
     }
 
