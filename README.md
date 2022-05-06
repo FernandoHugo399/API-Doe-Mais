@@ -9,17 +9,17 @@ Structure of a typescript api, already configured with eslint
 ## 👷 how to run it:
 ```bash
 # clone the repository
-git clone https://github.com/FernandoHugo399/API-TypeScript
+git clone https://github.com/FernandoHugo399/API-Doe-Mais
 
 # open an IDE of your choice
+
+# Add data to .env
+# Create database in postgres with dump that was made available
 
 # run yarn to install dependencies, after that, use yarn dev to start the server
 yarn
 yarn dev
-
-# If you want to use npm, you need to download sucrase and nodemon globally, after that, use npm run dev to start the server
-npm install -g nodemon sucrase
-npm run dev
 ```
+
 
 
