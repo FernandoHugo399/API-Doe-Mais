@@ -2,6 +2,7 @@ import { db } from './database/index'
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import { router } from './routes'
 
 class App {
     public express: express.Application
@@ -24,9 +25,7 @@ class App {
     }
 
     private routes (): void {
-      this.express.use('/', (req, res) => {
-        res.send('Hello World!')
-      })
+      this.express.use(router)
     }
 
     private database (): void {
