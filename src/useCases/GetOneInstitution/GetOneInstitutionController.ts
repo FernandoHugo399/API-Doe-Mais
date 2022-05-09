@@ -15,7 +15,7 @@ export class GetOneInstitutionController {
 
       return res.status(200).send({ institution })
     } catch (err) {
-      return res.status(200).send({ error: 'An error as occurred: ' + err })
+      return res.status(200).send({ error: err.message })
     }
   }
 }

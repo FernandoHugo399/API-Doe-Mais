@@ -14,7 +14,7 @@ export class GetInstitutionBankingInformationController {
       const institutionInformation = await this.getInstitutioBankingInformationUseCase.execute(id)
       return res.status(200).send({ institutionInformation })
     } catch (err) {
-      return res.status(200).send({ error: 'An error as occurred: ' + err })
+      return res.status(200).send({ error: err.message })
     }
   }
 }

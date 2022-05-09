@@ -13,7 +13,7 @@ export class GetAllInstitutionController {
       const institutuions = await this.getAllInstitutionUseCase.execute()
       return res.status(200).send({ institutuions })
     } catch (err) {
-      return res.status(200).send({ error: 'An error as occurred: ' + err })
+      return res.status(200).send({ error: err.message })
     }
   }
 }
