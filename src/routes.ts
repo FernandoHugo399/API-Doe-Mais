@@ -5,7 +5,7 @@ import { getInstitutionBankingInformationController } from './useCases/GetInstit
 
 export const router = Router()
 
-router.get('/institution', (req, res) => {
+router.get('/institutions', (req, res) => {
   return getAllInstitutionController.handle(req, res)
 })
 
