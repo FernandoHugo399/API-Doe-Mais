@@ -8,8 +8,12 @@ export class GetOneInstitutionUseCase {
   }
 
   public async execute (id: number) {
-    if (!id) throw new Error('id is undefined')
+    if (!id) throw new Error('Use a valid id!')
 
-    return this.institutionRepository.findById(id)
+    const institution = await this.institutionRepository.findById(id)
+
+    if (!institution) throw new Error('Institution not found!')
+
+    return institution
   }
 }
