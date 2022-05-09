@@ -8,11 +8,11 @@ export class GetInstitutioBankingInformationUseCase {
   }
 
   public async execute (id: number) {
-    if (!id) throw new Error('Informações da instituição não foi encontrada')
+    if (!id) throw new Error('Informações da instituição não encontradas')
 
     const institutionInformation = await this.institutionBankingInformationRepository.findById(id)
 
-    if (!institutionInformation) throw new Error('Informações da instituição não foi encontrada')
+    if (!institutionInformation) throw new Error('Informações da instituição não encontradas')
 
     return institutionInformation
   }

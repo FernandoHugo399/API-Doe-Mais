@@ -8,11 +8,11 @@ export class GetOneInstitutionUseCase {
   }
 
   public async execute (id: number) {
-    if (!id) throw new Error('Id em formato inválido')
+    if (!id) throw new Error('Instituição não encontrada')
 
     const institution = await this.institutionRepository.findById(id)
 
-    if (!institution) throw new Error('Instituição não foi encontrada')
+    if (!institution) throw new Error('Instituição não encontrada')
 
     return institution
   }
