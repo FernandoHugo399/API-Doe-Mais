@@ -1,6 +1,6 @@
 import { IInstitutionRepository } from '../../repositores/IInstitutionRepository'
 
-export class GetAllInstitutionUseCase {
+export class GetAllInstitutionsUseCase {
   private institutionRepository!: IInstitutionRepository
 
   constructor (institutionRepository: IInstitutionRepository) {

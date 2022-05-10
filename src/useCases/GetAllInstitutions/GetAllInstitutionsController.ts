@@ -1,10 +1,10 @@
-import { GetAllInstitutionUseCase } from './GetAllInstitutionUseCase'
+import { GetAllInstitutionsUseCase } from './GetAllInstitutionsUseCase'
 import { Request, Response } from 'express'
 
-export class GetAllInstitutionController {
-  private getAllInstitutionUseCase!: GetAllInstitutionUseCase
+export class GetAllInstitutionsController {
+  private getAllInstitutionUseCase!: GetAllInstitutionsUseCase
 
-  constructor (getAllInstitutionUseCase: GetAllInstitutionUseCase) {
+  constructor (getAllInstitutionUseCase: GetAllInstitutionsUseCase) {
     this.getAllInstitutionUseCase = getAllInstitutionUseCase
   }
 
