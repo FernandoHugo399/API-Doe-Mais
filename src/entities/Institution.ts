@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 export class Institution {
-  public readonly id_instituicao!: number
+  public readonly id_instituicao?: number
   public nome!: string
   public logo!: string
   public email!: string
