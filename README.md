@@ -1,4 +1,4 @@
-# API TypeScript
+# API Doe Mais
 
 ## :mag: About: 
 Structure of a typescript api, already configured with eslint
