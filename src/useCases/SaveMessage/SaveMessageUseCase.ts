@@ -12,9 +12,16 @@ export class SaveMessageUseCase {
     }
 
     public async execute (message: ISaveMessageDTO) {
-      if (isNaN(message.telefone)) throw new Error('Preencha apenas números no campo "telefone"')
-
       if (!message.email || !message.mensagem || !message.nome || !message.telefone) throw new Error('Todos os campos não foram preenchidos')
+
+      message.nome.trim()
+      message.email.trim()
+      message.mensagem.trim()
+      let formatedNumber = message.telefone.toString()
+      formatedNumber = formatedNumber.trim().replace(',', '').replace('.', '').replace('-', '').replace(/\s/g, '')
+      message.telefone = Number(formatedNumber)
+
+      if (isNaN(message.telefone)) throw new Error('Preencha apenas números no campo "telefone"')
 
       await this.messageRepository.saveMessage(message)
 

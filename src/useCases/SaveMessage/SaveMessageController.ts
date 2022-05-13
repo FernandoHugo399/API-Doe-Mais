@@ -11,12 +11,7 @@ export class SaveMessageController {
 
   public async handle (req: Request, res: Response): Promise<Response> {
     try {
-      let { nome, email, telefone, mensagem } = req.body
-      nome.trim()
-      email.trim()
-      mensagem.trim()
-      telefone = Number(telefone.trim().replace(',', '').replace('.', '').replace('-', '').replace(/\s/g, ''))
-
+      const { nome, email, telefone, mensagem } = req.body
       await this.saveMessageUseCase.execute({ nome, email, mensagem, telefone })
 
       return res.status(200).send({ message: 'Mensagem enviada com sucesso!' })
