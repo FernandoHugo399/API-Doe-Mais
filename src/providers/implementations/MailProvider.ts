@@ -12,14 +12,14 @@ export class MailProvider implements IMailProvider {
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT as unknown as number,
         auth: {
-          user: process.env.USER_HOST,
-          pass: process.env.PASS_HOST
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS
         }
       })
     }
 
     async sendMail (message: IMessage): Promise<void> {
-      this.transporter.sendMail({
+      await this.transporter.sendMail({
         to: {
           name: message.to.name,
           address: message.to.email
