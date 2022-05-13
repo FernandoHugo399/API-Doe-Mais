@@ -22,4 +22,22 @@ yarn dev
 ```
 
 
+## Routes:
+```bash
+# All institutions
+Get: /institutions
+
+# One institution
+Get: /institution/:id
+
+# Information of institution
+Get: /institution-information/:id
+
+# All messages
+Get: /messages
+
+# Save message
+Post: /save-message
+```
+
 
