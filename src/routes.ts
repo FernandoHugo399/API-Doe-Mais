@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { getAllInstitutionsController } from './useCases/GetAllInstitutions/index'
 import { getOneInstitutionController } from './useCases/GetOneInstitution/index'
 import { getInstitutionBankingInformationController } from './useCases/GetInstitutionBankingInformation/index'
+import { getMessagesControler } from './useCases/GetMessages/index'
 
 export const router = Router()
 
@@ -15,4 +16,8 @@ router.get('/institution/:id', (req, res) => {
 
 router.get('/institution-information/:id', (req, res) => {
   return getInstitutionBankingInformationController.handle(req, res)
+})
+
+router.get('/messages', (req, res) => {
+  return getMessagesControler.handle(req, res)
 })

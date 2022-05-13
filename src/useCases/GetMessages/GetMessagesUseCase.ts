@@ -1,19 +1,14 @@
-import { IInstitutionRepository } from '../../repositores/IInstitutionRepository'
+import { IMessageRepository } from './../../repositores/IMessageRepository'
 
-export class GetOneInstitutionUseCase {
-  private institutionRepository!: IInstitutionRepository
+export class GetMessagesUseCase {
+  private messageRepository!: IMessageRepository
 
-  constructor (institutionRepository: IInstitutionRepository) {
-    this.institutionRepository = institutionRepository
+  constructor (MessageRepository: IMessageRepository) {
+    this.messageRepository = MessageRepository
   }
 
-  public async execute (id: number) {
-    if (!id) throw new Error('Instituição não encontrada')
-
-    const institution = await this.institutionRepository.findById(id)
-
-    if (!institution) throw new Error('Instituição não encontrada')
-
-    return institution
+  public async execute () {
+    const messages = await this.messageRepository.findAll()
+    return messages
   }
 }
