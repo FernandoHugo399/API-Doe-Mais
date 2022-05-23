@@ -14,16 +14,21 @@ export class SaveMessageUseCase {
     public async execute (message: ISaveMessageDTO) {
       if (!message.email || !message.mensagem || !message.nome || !message.telefone) throw new Error('Todos os campos não foram preenchidos')
 
-      message.nome.trim()
-      message.email.trim()
-      message.mensagem.trim()
-      let formatedNumber = message.telefone.toString()
-      formatedNumber = formatedNumber.trim().replace(',', '').replace('.', '').replace('-', '').replace(/\s/g, '')
-      message.telefone = Number(formatedNumber)
+      const formatedNome = message.nome.trim()
+      const formatedEmail = message.email.trim()
+      const formatedMensagem = message.mensagem.trim()
+      const formatedTelefone = Number(message.telefone.toString().trim().replace(',', '').replace('.', '').replace('-', '').replace(/\s/g, ''))
 
-      if (isNaN(message.telefone)) throw new Error('Preencha apenas números no campo "telefone"')
+      if (!formatedTelefone) throw new Error('Preencha o campo de telefone em um formato válido!')
 
-      await this.messageRepository.saveMessage(message)
+      const Message: ISaveMessageDTO = {
+        email: formatedEmail,
+        mensagem: formatedMensagem,
+        nome: formatedNome,
+        telefone: formatedTelefone
+      }
+
+      await this.messageRepository.saveMessage(Message)
 
       await this.mailProvider.sendMail({
         from: {
@@ -31,10 +36,10 @@ export class SaveMessageUseCase {
           name: 'Hugo Fernando'
         },
         to: {
-          email: message.email,
-          name: message.nome
+          email: formatedEmail,
+          name: formatedNome
         },
-        subject: 'Olá ' + message.nome,
+        subject: 'Olá ' + formatedNome,
         body: '<p>Sua mensagem foi enviada com sucesso</p>'
       })
     }

@@ -10,8 +10,8 @@ export class GetAllInstitutionsController {
 
   public async handle (req: Request, res: Response): Promise<Response> {
     try {
-      const institutuions = await this.getAllInstitutionUseCase.execute()
-      return res.status(200).send({ institutuions })
+      const institutions = await this.getAllInstitutionUseCase.execute()
+      return res.status(200).send({ institutions })
     } catch (err) {
       return res.status(200).send({ error: err.message })
     }

@@ -8,7 +8,6 @@ export class GetMessagesUseCase {
   }
 
   public async execute () {
-    const messages = await this.messageRepository.findAll()
-    return messages
+    return this.messageRepository.findAll()
   }
 }

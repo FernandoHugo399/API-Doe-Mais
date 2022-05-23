@@ -4,8 +4,7 @@ import app from '../../app'
 describe('Testing useCase saveMessage', () => {
   it('should test a request in the route /save-message without body', async () => {
     const res = await supertest(app).post('/save-message')
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('error')
   })
 
@@ -16,8 +15,7 @@ describe('Testing useCase saveMessage', () => {
       telefone: '12221231',
       mensagem: 'Fazendo teste com jest'
     })
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('error')
   })
 
@@ -28,8 +26,7 @@ describe('Testing useCase saveMessage', () => {
       telefone: '12221231',
       mensagem: 'Fazendo teste com jest'
     })
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('error')
   })
 
@@ -40,8 +37,7 @@ describe('Testing useCase saveMessage', () => {
       telefone: '12221231',
       mensagem: ''
     })
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('error')
   })
 
@@ -52,8 +48,7 @@ describe('Testing useCase saveMessage', () => {
       telefone: '',
       mensagem: 'Fazendo teste com jest'
     })
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('error')
   })
 
@@ -64,8 +59,7 @@ describe('Testing useCase saveMessage', () => {
       telefone: 'telefoneinvalido',
       mensagem: 'Fazendo teste com jest'
     })
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('error')
   })
 
@@ -78,8 +72,7 @@ describe('Testing useCase saveMessage', () => {
     })
 
     console.log(res.body)
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('message')
   })
 })

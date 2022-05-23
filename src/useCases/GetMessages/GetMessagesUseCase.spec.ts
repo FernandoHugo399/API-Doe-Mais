@@ -4,8 +4,7 @@ import app from '../../app'
 describe('Testing useCase GetMessages', () => {
   it('should test a request in the route /messages', async () => {
     const res = await supertest(app).get('/messages')
-    expect(res.statusCode).toEqual(200)
-    expect(res.body).toBeDefined()
+
     expect(res.body).toHaveProperty('messages')
   })
 })
