@@ -14,19 +14,9 @@ export class SaveMessageUseCase {
     public async execute (message: ISaveMessageDTO) {
       if (!message.email || !message.mensagem || !message.nome || !message.telefone) throw new Error('Todos os campos não foram preenchidos')
 
-      const formatedNome = message.nome.trim()
-      const formatedEmail = message.email.trim()
-      const formatedMensagem = message.mensagem.trim()
-      const formatedTelefone = Number(message.telefone.toString().trim().replace(',', '').replace('.', '').replace('-', '').replace(/\s/g, ''))
+      const Message = this.formatMessage(message)
 
-      if (!formatedTelefone) throw new Error('Preencha o campo de telefone em um formato válido!')
-
-      const Message: ISaveMessageDTO = {
-        email: formatedEmail,
-        mensagem: formatedMensagem,
-        nome: formatedNome,
-        telefone: formatedTelefone
-      }
+      if (!Message.telefone) throw new Error('Preencha o campo de telefone em um formato válido!')
 
       await this.messageRepository.saveMessage(Message)
 
@@ -36,11 +26,27 @@ export class SaveMessageUseCase {
           name: 'Hugo Fernando'
         },
         to: {
-          email: formatedEmail,
-          name: formatedNome
+          email: Message.email,
+          name: Message.nome
         },
-        subject: 'Olá ' + formatedNome,
+        subject: 'Olá ' + Message.nome,
         body: '<p>Sua mensagem foi enviada com sucesso</p>'
       })
+    }
+
+    private formatMessage (message: ISaveMessageDTO): ISaveMessageDTO {
+      const formatedNome = message.nome.trim()
+      const formatedEmail = message.email.trim()
+      const formatedMensagem = message.mensagem.trim()
+      const formatedTelefone = Number(message.telefone.toString().trim().replace(',', '').replace('.', '').replace('-', '').replace(/\s/g, ''))
+
+      const Message = {
+        email: formatedEmail,
+        mensagem: formatedMensagem,
+        nome: formatedNome,
+        telefone: formatedTelefone
+      }
+
+      return Message
     }
 }
