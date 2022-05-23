@@ -1,4 +1,4 @@
-# API TypeScript
+# API Doe Mais
 
 ## :mag: About: 
 Structure of a typescript api, already configured with eslint
@@ -21,5 +21,23 @@ yarn
 yarn dev
 ```
 
+
+## Routes:
+```bash
+# All institutions
+Get: /institutions
+
+# One institution
+Get: /institution/:id
+
+# Information of institution
+Get: /institution-information/:id
+
+# All messages
+Get: /messages
+
+# Save message
+Post: /save-message
+```
 
 
