@@ -12,7 +12,8 @@ export class SaveMessageUseCase {
     }
 
     public async execute (message: ISaveMessageDTO) {
-      if (!message.email || !message.mensagem || !message.nome || !message.telefone) throw new Error('Todos os campos não foram preenchidos')
+      console.log(message)
+      throw new Error('teste')
 
       const Message = this.formatMessage(message)
 
