@@ -11,12 +11,7 @@ export class SaveMessageController {
 
   public async handle (req: Request, res: Response): Promise<Response> {
     try {
-      console.log(req.body)
-      const { nome, email, telefone, mensagem } = req.body
-      console.log(nome)
-      if (!email || !mensagem || !nome || !telefone) throw new Error('Todos os campos não foram preenchidos')
-
-      await this.saveMessageUseCase.execute({ nome, email, mensagem, telefone })
+      await this.saveMessageUseCase.execute(req.body)
 
       return res.status(200).send({ message: 'Mensagem enviada com sucesso!' })
     } catch (err) {

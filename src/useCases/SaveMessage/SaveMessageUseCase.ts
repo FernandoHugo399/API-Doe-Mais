@@ -12,8 +12,9 @@ export class SaveMessageUseCase {
     }
 
     public async execute (message: ISaveMessageDTO) {
-      console.log(message)
-      throw new Error('teste')
+      const { nome, email, telefone, mensagem } = message
+
+      if (!email || !mensagem || !nome || !telefone) throw new Error('Todos os campos não foram preenchidos')
 
       const Message = this.formatMessage(message)
 
