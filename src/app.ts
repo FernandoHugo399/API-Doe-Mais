@@ -4,6 +4,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import { router } from './routes'
+import morgan from 'morgan'
 
 class App {
     public express: express.Application
@@ -16,6 +17,7 @@ class App {
     }
 
     private middlewares (): void {
+      this.express.use(morgan('dev'))
       this.express.use(express.json())
       this.express.use(bodyParser.urlencoded({ extended: false }))
       this.express.use(bodyParser.json())
