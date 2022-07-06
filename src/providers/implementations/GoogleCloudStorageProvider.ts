@@ -16,9 +16,8 @@ export class GoogleCloudProvider implements IGoogleCLoudStorageProvider {
     this.bucket = gcs.bucket(this.bucketName)
   }
 
-  public getBlobStream (file: Express.Multer.File): internal.Writable {
-    const now = Date.now().toString().substring(0, 10)
-    const blob = this.bucket.file(now + file.originalname)
+  public getBlobStream (file: Express.Multer.File, dateNowToStringSubstring10: string): internal.Writable {
+    const blob = this.bucket.file(dateNowToStringSubstring10 + file.originalname)
     const blobStream = blob.createWriteStream()
     return blobStream
   }
