@@ -1,6 +1,7 @@
+import 'dotenv/config'
 import { db } from './database/index'
 import express from 'express'
-import dotenv from 'dotenv'
+import bodyParser from 'body-parser'
 import cors from 'cors'
 import { router } from './routes'
 
@@ -15,13 +16,12 @@ class App {
     }
 
     private middlewares (): void {
-      dotenv.config()
-
+      this.express.use(express.json())
+      this.express.use(bodyParser.urlencoded({ extended: false }))
+      this.express.use(bodyParser.json())
       this.express.use(cors({
         origin: '*'
       }))
-
-      this.express.use(express.json())
     }
 
     private routes (): void {
