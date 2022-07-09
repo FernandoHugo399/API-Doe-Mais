@@ -10,9 +10,11 @@ export class InstitutionBankingInformation {
   public banco_1!: string
   public agencia_banco_1!: string
   public conta_banco_1!: string
+  public tipo_conta_1!: string
   public banco_2?: string
   public agencia_banco_2?: string
   public conta_banco_2?: string
+  public tipo_conta_2?: string
   public id_instituicao!: number
   public logo!: string
   public sobre_curto!: string
