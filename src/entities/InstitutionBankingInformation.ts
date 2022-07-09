@@ -19,6 +19,7 @@ export class InstitutionBankingInformation {
   public logo!: string
   public sobre_curto!: string
   public localizacao!: string
+  public nome!: string
 
   constructor (props: InstitutionBankingInformation) {
     Object.assign(this, props)

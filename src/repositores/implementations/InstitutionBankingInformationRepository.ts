@@ -5,7 +5,10 @@ import { db } from '../../database'
 export class InstitutionBankingInformationRepository implements IInstitutionBankingInformationRepository {
   public async findById (id: number): Promise<InstitutionBankingInformation> {
     const institutionBI = await db.query(`
-    select *, instituicao.logo, instituicao.sobre_curto, instituicao.localizacao from informacao_bancaria_instituicao
+    select banco_pix_1, pix_1, qr_code_pix_1, banco_pix_2, pix_2, qr_code_pix_2,
+    banco_1, agencia_banco_1, conta_banco_1, tipo_conta_1, banco_2, agencia_banco_2, conta_banco_2, tipo_conta_2,
+    instituicao.id_instituicao, nome, logo, localizacao, sobre_curto
+    from informacao_bancaria_instituicao
     inner join instituicao
     on instituicao.id_instituicao = informacao_bancaria_instituicao.id_instituicao
     where instituicao.id_instituicao = $1
