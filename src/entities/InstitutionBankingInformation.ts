@@ -8,12 +8,15 @@ export class InstitutionBankingInformation {
   public pix_2?: string
   public qr_code_pix_2?: string
   public banco_1!: string
-  public agencia_banco_1!: number
-  public conta_banco_1!: number
+  public agencia_banco_1!: string
+  public conta_banco_1!: string
   public banco_2?: string
-  public agencia_banco_2?: number
-  public conta_banco_2?: number
+  public agencia_banco_2?: string
+  public conta_banco_2?: string
   public id_instituicao!: number
+  public logo!: string
+  public sobre_curto!: string
+  public localizacao!: string
 
   constructor (props: InstitutionBankingInformation) {
     Object.assign(this, props)

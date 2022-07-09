@@ -5,11 +5,11 @@ export class Institution {
   public logo!: string
   public email!: string
   public localizacao!: string
-  public telefone_1!: number
-  public telefone_2?: number
-  public cpf_responsavel!: number
-  public cnpj?: number
-  public website!: number
+  public telefone_1!: string
+  public telefone_2?: string
+  public cpf_responsavel!: string
+  public cnpj?: string
+  public website!: string
   public sobre!: string
   public sobre_curto!: string
 
