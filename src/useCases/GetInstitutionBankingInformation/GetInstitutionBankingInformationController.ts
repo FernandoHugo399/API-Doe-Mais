@@ -12,7 +12,7 @@ export class GetInstitutionBankingInformationController {
     try {
       const id = Number(req.params.id)
       const institutionInformation = await this.getInstitutioBankingInformationUseCase.execute(id)
-      return res.status(200).send({ institutionInformation })
+      return res.status(200).send(institutionInformation)
     } catch (err) {
       return res.status(200).send({ error: err.message })
     }

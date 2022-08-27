@@ -13,7 +13,7 @@ export class GetOneInstitutionController {
       const id = Number(req.params.id)
       const institution = await this.getOneInstitutionUseCase.execute(id)
 
-      return res.status(200).send({ institution })
+      return res.status(200).send(institution)
     } catch (err) {
       return res.status(200).send({ error: err.message })
     }

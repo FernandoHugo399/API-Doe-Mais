@@ -11,7 +11,7 @@ export class GetMessagesController {
   public async handle (req: Request, res: Response): Promise<Response> {
     try {
       const messages = await this.getMessagesUseCase.execute()
-      return res.status(200).send({ messages })
+      return res.status(200).send(messages)
     } catch (err) {
       return res.status(200).send({ error: err.message })
     }
