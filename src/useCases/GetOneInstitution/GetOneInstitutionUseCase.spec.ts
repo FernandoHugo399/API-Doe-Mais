@@ -13,4 +13,10 @@ describe('Testing useCase GetOneInstitution', () => {
 
     expect(res.body).toHaveProperty('error')
   })
+
+  it('should test a request in the route /institution/:id with a valid id', async () => {
+    const res = await supertest(app).get('/institution/2')
+
+    expect(res.body).not.toHaveProperty('error')
+  })
 })

@@ -13,4 +13,10 @@ describe('Testing useCase GetInstitutionBankingInformation', () => {
 
     expect(res.body).toHaveProperty('error')
   })
+
+  it('should test a request in the route /institution-information/:id with a valid id', async () => {
+    const res = await supertest(app).get('/institution-information/2')
+
+    expect(res.body).not.toHaveProperty('error')
+  })
 })
